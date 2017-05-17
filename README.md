@@ -1,8 +1,7 @@
 ## dotfiles
 
-delete .bashrc
-delete .emacs.d/init.el
-make sym links
+script makes symlinks to .bashrc, .emacs.d/init.el
+
 
 
 
