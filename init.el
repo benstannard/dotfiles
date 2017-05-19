@@ -46,12 +46,4 @@
 	 ("C-;" . better-shell-remote-open)))
 
 
-;;;(use-package flycheck
-;;;  :ensure t
-;;;  :init (global-flycheck-mode))
-
-;; turn off color
-;; (global-font-lock-mode 0)
-
-
 ;;; init.el ends here
