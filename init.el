@@ -9,7 +9,7 @@
 (ido-mode 1)
 (setq backup-directory-alist `(("." . "~/.saves"))) ;; make backup files go to .saves
 (defalias 'list-buffers 'ibuffer)
-(setq scroll-step 3)
+(global-font-lock-mode -1)
 
 
 ;; remapping keys
