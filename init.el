@@ -11,7 +11,6 @@
 (defalias 'list-buffers 'ibuffer)
 (global-font-lock-mode -1)
 
-
 ;; remapping keys
 (global-set-key (kbd "M-]") 'backward-paragraph)
 (global-set-key (kbd "C-]") 'forward-paragraph)
@@ -33,17 +32,5 @@
   :ensure t
   :config
   (which-key-mode))
-
-(use-package virtualenvwrapper
-  :ensure t
-  :config
-  (venv-initialize-interactive-shells)
-        (venv-initialize-eshell))
-
-(use-package better-shell
-  :ensure t
-  :bind (("C-'" . better-shell-shell)
-	 ("C-;" . better-shell-remote-open)))
-
 
 ;;; init.el ends here
