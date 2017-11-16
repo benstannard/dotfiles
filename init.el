@@ -9,28 +9,7 @@
 (ido-mode 1)
 (setq backup-directory-alist `(("." . "~/.saves"))) ;; make backup files go to .saves
 (defalias 'list-buffers 'ibuffer)
-(global-font-lock-mode -1)
 
-;; remapping keys
-(global-set-key (kbd "M-]") 'backward-paragraph)
-(global-set-key (kbd "C-]") 'forward-paragraph)
 
-;; M-x list-packages
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-
-(package-initialize)
-
-;; bootstrap use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(use-package which-key
-  :ensure t
-  :config
-  (which-key-mode))
 
 ;;; init.el ends here
