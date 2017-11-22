@@ -98,8 +98,8 @@ fi
 
 
 # GOPATH
-export EDITOR=emacs
-export GIT_EDITOR=emacs
+export EDITOR=vim
+export GIT_EDITOR=vim
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/flaskapps/hotel/bin
@@ -117,7 +117,8 @@ alias js='fg 2'
 alias jd='fg 3'
 alias jf='fg 4'
 alias pst='pstree -p'
-alias e='emacs '
+alias e='vim '
+alias v='vim '
 alias i='ipython'
 alias ping='ping -c 5'
 alias df='df -h'
