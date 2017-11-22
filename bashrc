@@ -307,3 +307,5 @@ _mk_prompt() {
     export PS1
 }
 export PROMPT_COMMAND=_mk_prompt
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -142,5 +142,5 @@ autocmd filetype javascript set sw=2 ts=2
 autocmd filetype html set sw=2 ts=2
 
 " Show whitespace.
-:highlight ExtraWhitespace ctermbg=red guibg=reg
+:highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
