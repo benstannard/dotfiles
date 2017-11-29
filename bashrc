@@ -98,8 +98,8 @@ fi
 
 
 # GOPATH
-export EDITOR=vim
-export GIT_EDITOR=vim
+export EDITOR=emacs
+export GIT_EDITOR=emacs
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/flaskapps/hotel/bin
@@ -109,6 +109,10 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/flaskapps/hotel/bin
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias cd.='cd ..'
+alias cd..='cd ..'
 alias l='ls -1 --color=auto'
 alias ll='ls -lah --color=auto'
 alias ls='ls --color=auto -h --group-directories-first --ignore="*.pyc"'
@@ -117,12 +121,16 @@ alias js='fg 2'
 alias jd='fg 3'
 alias jf='fg 4'
 alias pst='pstree -p'
-alias e='vim '
 alias v='vim '
 alias i='ipython'
 alias ping='ping -c 5'
 alias df='df -h'
 alias du='du -h -c'
+
+#  emacs --daemon
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+
 
 # Find your IP
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'

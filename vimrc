@@ -124,6 +124,7 @@ set wildignore+=*.egg-info/**
 
 " Errors checking for Python. pip install flake8.
 let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501'
 
 " vim-airline settings
 let laststatus=2
