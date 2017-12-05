@@ -97,11 +97,14 @@ if ! shopt -oq posix; then
 fi
 
 
-# GOPATH
+# Editor - emacs
 export EDITOR=emacs
 export GIT_EDITOR=emacs
+
+# GOPATH
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/flaskapps/hotel/bin
 
 
