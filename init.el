@@ -10,13 +10,16 @@
 ;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") #'ibuffer)
 
-
 ;; Ido mode
 (require 'ido)
 (ido-mode t)
 
-;; backup go to .saves 
+;; backup go to .saves
 (setq backup-directory-alist `(("." . "~/.saves")))
+
+;; toGGggle whitespace-mode
+(global-set-key (kbd "M-S") 'whitespace-mode)
+
 
 ;; MELPA
 (require 'package)
@@ -33,10 +36,8 @@
 ;; Packages
 (use-package avy
   :ensure t
-  :bind (("s-." . avy-goto-word-or-subword-1)
-	 ("s-," . avy-goto-char))
+  :bind ("M-s" . avy-goto-char-2)
   :config
   (setq avy-background t))
-
 
 ;;; init.el ends here
