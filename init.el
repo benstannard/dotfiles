@@ -17,9 +17,11 @@
 ;; backup go to .saves
 (setq backup-directory-alist `(("." . "~/.saves")))
 
-;; toGGggle whitespace-mode
+;; toggle whitespace-mode
 (global-set-key (kbd "M-S") 'whitespace-mode)
 
+;; y or n
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; MELPA
 (require 'package)
