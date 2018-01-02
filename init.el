@@ -42,4 +42,8 @@
   :config
   (setq avy-background t))
 
+(use-package go-mode
+  :ensure t)
+
+
 ;;; init.el ends here
