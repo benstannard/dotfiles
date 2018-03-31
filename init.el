@@ -18,7 +18,7 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; toggle whitespace-mode
-(global-set-key (kbd "M-S") 'whitespace-mode)
+(global-set-key (kbd "C-x w") 'whitespace-mode)
 
 ;; y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -38,12 +38,23 @@
 ;; Packages
 (use-package avy
   :ensure t
-  :bind ("M-s" . avy-goto-char-2)
+  :bind ("C-x j" . avy-goto-word-or-subword-1)
   :config
   (setq avy-background t))
 
 (use-package go-mode
   :ensure t)
+
+
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (setq web-mode-engines-alist
+	'(("django"    . "\\.html\\'")))
+  (setq web-mode-ac-sources-alist
+	'(("css" . (ac-source-css-property))
+	  ("html" . (ac-source-words-in-buffer ac-source-abbrev)))))
 
 
 ;;; init.el ends here
