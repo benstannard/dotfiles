@@ -1,27 +1,16 @@
 ;;; init.el - Emacs configuration
 
-;;; custom settings
+;; custom settings
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (blink-cursor-mode -1)
-;; (global-hl-line-mode +1)
-
-;; replace buffer-menu with ibuffer
-(global-set-key (kbd "C-x C-b") #'ibuffer)
-
-;; Ido mode
-(require 'ido)
+(global-set-key (kbd "C-x C-b") #'ibuffer) ;; replace buffer-menu with ibuffer
+(defalias 'yes-or-no-p 'y-or-n-p) ;; y or n
+(require 'ido) ;; Ido mode
 (ido-mode t)
+(global-set-key (kbd "C-x w") 'whitespace-mode) ;; toggle whitespace-mode
 
-;; backup go to .saves
-(setq backup-directory-alist `(("." . "~/.saves")))
-
-;; toggle whitespace-mode
-(global-set-key (kbd "C-x w") 'whitespace-mode)
-
-;; y or n
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; MELPA
 (require 'package)
@@ -30,10 +19,11 @@
 	     '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-;; Bootstrap `use-package'
+;; M-x package-refresh-contents, M-x package-install RET use-package RET
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
 
 ;; Packages
 (use-package avy
@@ -45,7 +35,6 @@
 (use-package go-mode
   :ensure t)
 
-
 (use-package web-mode
   :ensure t
   :config
@@ -56,5 +45,11 @@
 	'(("css" . (ac-source-css-property))
 	  ("html" . (ac-source-words-in-buffer ac-source-abbrev)))))
 
+(use-package go-mode
+  :ensure t)
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
 
 ;;; init.el ends here
