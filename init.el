@@ -1,4 +1,4 @@
-;;; init.el - Emacs configuration
+;;; Init.el - Emacs configuration
 
 ;; custom settings
 (setq inhibit-startup-message t)
@@ -46,6 +46,9 @@
 	  ("html" . (ac-source-words-in-buffer ac-source-abbrev)))))
 
 (use-package go-mode
+  :ensure t)
+
+(use-package rjsx-mode
   :ensure t)
 
 (use-package flycheck

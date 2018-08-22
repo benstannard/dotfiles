@@ -106,6 +106,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/flaskapps/hotel/bin
+export PATH=/home/ben/miniconda3/bin:$PATH
 
 
 # Alias
