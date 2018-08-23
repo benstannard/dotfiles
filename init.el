@@ -4,6 +4,7 @@
 (setq user-full-name "Ben Stannard")
 (setq user-mail-address "ben.stannard@gmail.com")
 
+
 ;; Custom Settings
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
