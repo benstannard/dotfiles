@@ -1,6 +1,10 @@
 ;;; Init.el - Emacs configuration
 
-;; custom settings
+;; User Info
+(setq user-full-name "Ben Stannard")
+(setq user-mail-address "ben.stannard@gmail.com")
+
+;; Custom Settings
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -53,6 +57,6 @@
 
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
+  :init (global-flycheck-mode))
 
 ;;; init.el ends here
