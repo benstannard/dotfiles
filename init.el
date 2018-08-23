@@ -15,7 +15,7 @@
 (require 'ido) ;; Ido mode
 (ido-mode t)
 (global-set-key (kbd "C-x w") 'whitespace-mode) ;; toggle whitespace-mode
-
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; MELPA
 (require 'package)
