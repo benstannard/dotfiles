@@ -10,6 +10,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (blink-cursor-mode -1)
+(global-font-lock-mode 0) ;; turn off syntax coloring
 (global-set-key (kbd "C-x C-b") #'ibuffer) ;; replace buffer-menu with ibuffer
 (defalias 'yes-or-no-p 'y-or-n-p) ;; y or n
 (require 'ido) ;; Ido mode
