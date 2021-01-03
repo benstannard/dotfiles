@@ -57,8 +57,4 @@
 (use-package rjsx-mode
   :ensure t)
 
-;; (use-package flycheck
-;;   :ensure t
-;;   :init (global-flycheck-mode))
-
 ;;; init.el ends here
