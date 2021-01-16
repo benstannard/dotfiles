@@ -4,7 +4,6 @@
 (setq user-full-name "Ben Stannard")
 (setq user-mail-address "ben.stannard@gmail.com")
 
-
 ;; Custom Settings
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
@@ -18,11 +17,14 @@
 (global-set-key (kbd "C-x w") 'whitespace-mode) ;; toggle whitespace-mode
 (setq backup-directory-alist `(("." . "~/.saves")))
 
-;; MELPA
+;; 48 Emacs Lisp Packages
+;; Emacs is extended by implementing additional features in packages, which are Emacs Lisp libraries.
+;; These could be written by you or provided by someone else.
+;; package.el is the built in package manager in Emacs 24.1+
+;; MELPA https://melpa.org/#/getting-started
 (require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+(setq package-enable-at-startup nil) ;; 2021/01/16 not sure
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; M-x package-refresh-contents, M-x package-install RET use-package RET
@@ -30,8 +32,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-
-;; Packages
+;; Package configuration with use-package
 (use-package avy
   :ensure t
   :bind ("C-x j" . avy-goto-word-or-subword-1)
