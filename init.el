@@ -38,9 +38,6 @@
   :config
   (setq avy-background t))
 
-(use-package go-mode
-  :ensure t)
-
 (use-package web-mode
   :ensure t
   :config
@@ -50,11 +47,5 @@
   (setq web-mode-ac-sources-alist
 	'(("css" . (ac-source-css-property))
 	  ("html" . (ac-source-words-in-buffer ac-source-abbrev)))))
-
-(use-package go-mode
-  :ensure t)
-
-(use-package rjsx-mode
-  :ensure t)
 
 ;;; init.el ends here
