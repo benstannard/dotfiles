@@ -21,7 +21,7 @@
 ;; Emacs is extended by implementing additional features in packages, which are Emacs Lisp libraries.
 ;; These could be written by you or provided by someone else.
 ;; package.el is the built in package manager in Emacs 24.1+
-;; MELPA https://melpa.org/#/getting-started
+;; setup config to download from MELPA https://melpa.org/#/getting-started
 (require 'package)
 (setq package-enable-at-startup nil) ;; 2021/01/16 not sure
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -32,12 +32,17 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Package configuration with use-package
+;; Package configuration with use-package 
 (use-package avy
   :ensure t
   :bind ("C-x j" . avy-goto-word-or-subword-1)
   :config
   (setq avy-background t))
+
+(use-package magit
+  :ensure t
+  :init (message "Loading Magit...")
+  :bind ("C-x g" . magit-status))
 
 (use-package web-mode
   :ensure t
