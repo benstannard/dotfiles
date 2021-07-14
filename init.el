@@ -2,7 +2,6 @@
 
 ;; User Info
 (setq user-full-name "Ben Stannard")
-(setq user-mail-address "ben.stannard@gmail.com")
 
 ;; Custom Settings
 (setq inhibit-startup-message t)
@@ -39,10 +38,10 @@
   :config
   (setq avy-background t))
 
-(use-package magit
-  :ensure t
-  :init (message "Loading Magit...")
-  :bind ("C-x g" . magit-status))
+;; (use-package magit
+;;   :ensure t
+;;  :init (message "Loading Magit...")
+;;  :bind ("C-x g" . magit-status))
 
 (use-package web-mode
   :ensure t
@@ -50,8 +49,12 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (setq web-mode-engines-alist
 	'(("django"    . "\\.html\\'")))
-  (setq web-mode-ac-sources-alist
-	'(("css" . (ac-source-css-property))
-	  ("html" . (ac-source-words-in-buffer ac-source-abbrev)))))
+
+(setq web-mode-ac-sources-alist
+      '(("css" . (ac-source-css-property))
+	("html" . (ac-source-words-in-buffer ac-source-abbrev)))))
 
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)

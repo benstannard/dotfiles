@@ -102,7 +102,7 @@ export EDITOR=emacs
 export GIT_EDITOR=emacs
 
 # PATH
-export GOPATH=$(go env GOPATH)
+export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/flaskapps/hotel/bin
@@ -111,6 +111,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Alias
+#alias c='cd '
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
