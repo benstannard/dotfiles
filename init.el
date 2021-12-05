@@ -31,30 +31,32 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Package configuration with use-package 
+
 (use-package avy
   :ensure t
   :bind ("C-x j" . avy-goto-word-or-subword-1)
   :config
   (setq avy-background t))
 
-;; (use-package magit
-;;   :ensure t
-;;  :init (message "Loading Magit...")
-;;  :bind ("C-x g" . magit-status))
 
 (use-package web-mode
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (setq web-mode-engines-alist
-	'(("django"    . "\\.html\\'")))
+  (add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
 
-(setq web-mode-ac-sources-alist
-      '(("css" . (ac-source-css-property))
-	("html" . (ac-source-words-in-buffer ac-source-abbrev)))))
+
+
+
+;; (use-package magit
+;;   :ensure t
+;;  :init (message "Loading Magit...")
+;;  :bind ("C-x g" . magit-status))
+
+
+;; (put 'upcase-region 'disabled nil)
+;; (put 'narrow-to-region 'disabled nil)
+;; (put 'narrow-to-page 'disabled nil)
 
 ;;; init.el ends here
-(put 'upcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
+
