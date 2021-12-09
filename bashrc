@@ -75,11 +75,6 @@ case "$TERM" in
 	;;
 esac
 
-# some more ls aliases
-#alias ll='ls -alF'
-#alias la='ls -A'
-#alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -97,9 +92,6 @@ if ! shopt -oq posix; then
 fi
 
 
-# Editor - emacs
-export EDITOR=emacs
-export GIT_EDITOR=emacs
 
 # PATH
 export GOPATH=$HOME/go
@@ -110,32 +102,47 @@ export PATH="/home/ben/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Alias
-#alias c='cd '
+# Editor - emacs
+export EDITOR=emacs
+export GIT_EDITOR=emacs
+
+# Ben, you created these alias
+
+# one key Bash
+alias c='cd '
+alias e='emacsclient -t'
+alias h='man '
+alias i='ipython'
+alias l='ls -1 --color=auto'
+alias n='node '
+alias r='less '
+alias v='vim '
+
+# simplify bash (cd)
+alias cd.='cd ..'
+alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias cd.='cd ..'
-alias cd..='cd ..'
-alias l='ls -1 --color=auto'
+
+# simplify bash (ls)
 alias ll='ls -lah --color=auto'
 alias ls='ls --color=auto -h --group-directories-first --ignore="*.pyc"'
+
+# simplify bash (fg = b)
 alias ja='fg 1'
 alias js='fg 2'
 alias jd='fg 3'
 alias jf='fg 4'
 alias pst='pstree -p'
-alias v='vim '
-alias i='ipython'
+
 alias ping='ping -c 5'
 alias df='df -h'
 alias du='du -h -c'
 
-#  emacs --daemon
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
+
 
 
 # Find your IP

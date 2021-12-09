@@ -16,6 +16,37 @@
 (global-set-key (kbd "C-x w") 'whitespace-mode) ;; toggle whitespace-mode
 (setq backup-directory-alist `(("." . "~/.saves")))
 
+
+;; Indentation. copied from https://dougie.io/emacs/indentation/
+;; START TABS CONFIG
+;; Create a variable for our preferred tab width
+(setq custom-tab-width 2)
+
+;; Two callable functions for enabling/disabling tabs in Emacs
+(defun disable-tabs () (setq indent-tabs-mode nil))
+(defun enable-tabs  ()
+  (local-set-key (kbd "TAB") 'tab-to-tab-stop)
+  (setq indent-tabs-mode t)
+  (setq tab-width custom-tab-width))
+
+;; Hooks to Enable Tabs and Disable
+(add-hook 'prog-mode-hook 'enable-tabs)
+(add-hook 'lisp-mode-hook 'disable-tabs)
+(add-hook 'emacs-lisp-mode-hook 'disable-tabs)
+
+;; Language-Specific Tweaks
+(setq-default js-indent-level custom-tab-width)      ;; Javascript
+;; (setq-default python-indent-offset custom-tab-width) ;; Python
+
+
+
+
+
+
+
+
+
+
 ;; 48 Emacs Lisp Packages
 ;; Emacs is extended by implementing additional features in packages, which are Emacs Lisp libraries.
 ;; These could be written by you or provided by someone else.
