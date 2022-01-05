@@ -99,8 +99,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/flaskapps/hotel/bin
 export PATH="/home/ben/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # Editor - emacs
 export EDITOR=emacs
