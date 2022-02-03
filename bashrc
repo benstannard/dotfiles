@@ -75,10 +75,6 @@ case "$TERM" in
 	;;
 esac
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -92,12 +88,11 @@ if ! shopt -oq posix; then
 fi
 
 
-
 # PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
-export PATH=$PATH:$HOME/flaskapps/hotel/bin
+export PATH=$PATH:/$HOME/local
 export PATH="/home/ben/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
@@ -106,15 +101,11 @@ export PATH="/home/ben/.pyenv/bin:$PATH"
 export EDITOR=emacs
 export GIT_EDITOR=emacs
 
-# Ben, you created these alias
-
 # one key Bash
 alias c='cd '
 alias e='emacsclient -t'
-alias h='man '
 alias i='ipython'
 alias l='ls -1 --color=auto'
-alias n='node '
 alias r='less '
 alias v='vim '
 
@@ -138,25 +129,10 @@ alias jd='fg 3'
 alias jf='fg 4'
 alias pst='pstree -p'
 
-alias ping='ping -c 5'
-alias df='df -h'
-alias du='du -h -c'
-
-
-
-
-# Find your IP
-alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
-
 # Git
 alias gs='git status'
 alias gb='git branch'
 alias gc='git checkout'
-
-# Copy / Paste. Pipe data to your system clipboard/pasteboard
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-
 
 ### FUNCTIONS ###
 # Function to update OS & Libraries.
@@ -329,4 +305,5 @@ _mk_prompt() {
 }
 export PROMPT_COMMAND=_mk_prompt
 
+[ -f ~/.docker_aliases ] && source ~/.docker_aliases
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
