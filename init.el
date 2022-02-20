@@ -8,12 +8,13 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (blink-cursor-mode 0)
+(defalias 'yes-or-no-p 'y-or-n-p)
+(global-font-lock-mode 0) ;; turn off syntax coloring
+(setq column-number-mode t)
 
 ;; Custom key-bindings
 (global-set-key (kbd "C-x C-b") #'ibuffer) ;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x w") 'whitespace-mode) ;; toggle whitespace-mode
-(defalias 'yes-or-no-p 'y-or-n-p) ;; y or n
-;; (global-font-lock-mode 0) ;; turn off syntax coloring
 
 ;; Interactively do things
 (ido-mode 1)
@@ -74,10 +75,10 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode)))
 
-(use-package flycheck
-  :ensure t
-  :config
-  :init (global-flycheck-mode))
+;; (use-package flycheck
+;;   :ensure t
+;;   :config
+;;   :init (global-flycheck-mode))
 
 (use-package sql-indent
   :ensure t
