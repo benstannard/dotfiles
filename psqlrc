@@ -12,4 +12,4 @@
 set intervalstyle to 'postgres_verbose';
 
 \setenv LESS '-iMFXSx4R'
-\setenv EDITOR 'emacs'
+\setenv EDITOR 'vim'

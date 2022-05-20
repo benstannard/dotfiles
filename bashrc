@@ -98,8 +98,8 @@ export PATH="/home/ben/.pyenv/bin:$PATH"
 # eval "$(pyenv virtualenv-init -)"
 
 # Editor - emacs
-export EDITOR=emacs
-export GIT_EDITOR=emacs
+export EDITOR=vim
+export GIT_EDITOR=vim
 
 # one key Bash
 alias c='cd '
@@ -145,52 +145,6 @@ function uu {
     sudo apt-get upgrade
     echo "base OS is up-to-date with most recent patches."
 }
-
-# Function to uncompress file. https://github.com/xvoland/Extract
-# $ extract <compressed_file>
-function extract {
-    if [ -z "$1" ]; then
-	# display usage if no parameters given
-	echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-    else
-	if [ -f "$1" ] ; then
-	    NAME=${1%.*}
-	    #mkdir $NAME && cd $NAME
-	    case "$1" in
-		*.tar.bz2)   tar xvjf ./"$1"    ;;
-		*.tar.gz)    tar xvzf ./"$1"    ;;
-		*.tar.xz)    tar xvJf ./"$1"    ;;
-		*.lzma)      unlzma ./"$1"      ;;
-		*.bz2)       bunzip2 ./"$1"     ;;
-		*.rar)       unrar x -ad ./"$1" ;;
-		*.gz)        gunzip ./"$1"      ;;
-		*.tar)       tar xvf ./"$1"     ;;
-		*.tbz2)      tar xvjf ./"$1"    ;;
-		*.tgz)       tar xvzf ./"$1"    ;;
-		*.zip)       unzip ./"$1"       ;;
-		*.Z)         uncompress ./"$1"  ;;
-		*.7z)        7z x ./"$1"        ;;
-		*.xz)        unxz ./"$1"        ;;
-		*.exe)       cabextract ./"$1"  ;;
-		*)           echo "extract: '$1' - unknown archive method" ;;
-	    esac
-	else
-	    echo "'$1' - file does not exist"
-	fi
-    fi
-    }
-
-
-### PROMPT ###
-# https://gist.github.com/wolever/6525437
-# prompt examples
-#   [3 jobs master virtualenv] ~/code/myproject/foo
-#   [1 job my-branch virtualenv] ~/code/bar/
-#   [virtualenv] ~/code/
-#   ~
-# Very, very fast, only requiring a couple of fork()s (and no forking at all to determine the current git branch)
-# I changed PS1 colors for better readability
-
 
 # then you can add \`jobs_count\` to the end of your PS1 like this
 function jobs_count {
