@@ -1,11 +1,10 @@
 " .vimrc of Ben Stannard
 
-
 " VIM-PLUG BLOCK. PlugInstall, PlugUpdate, PlugClean[!], PlugUpgrade, PlugStatus
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/syntastic'
+Plug 'preservim/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'mtth/scratch.vim'
 call plug#end()
@@ -109,8 +108,8 @@ map <left> :bp<cr>
 set pastetoggle=<leader>p
 
 " find files using FZF
-nnoremap <leader>f :GFiles<CR>
-nnoremap <leader>F :Files<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :GFiles<CR>
 
 " Fast editing of vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
