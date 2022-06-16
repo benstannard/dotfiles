@@ -107,9 +107,9 @@ map <left> :bp<cr>
 " makes paste easier
 set pastetoggle=<leader>p
 
-" find files using FZF
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>F :GFiles<CR>
+" find files using NERDTree and FZF
+nnoremap <leader>f :NERDTree<CR>
+nnoremap <leader>F :Files<CR>
 
 " Fast editing of vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
