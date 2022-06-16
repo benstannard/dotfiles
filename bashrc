@@ -104,7 +104,7 @@ alias c='cd '
 alias e='emacsclient -t'
 alias i='ipython'
 alias l='ls -1 --color=auto'
-alias r='less '
+alias r='batcat --color=never '
 alias v='vim '
 
 # simplify bash (cd)
