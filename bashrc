@@ -94,10 +94,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:/$HOME/local
 export PATH="/home/ben/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
 
-# Editor - emacs
+# Editor
 export EDITOR=vim
 export GIT_EDITOR=vim
 
