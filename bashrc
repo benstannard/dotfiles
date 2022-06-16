@@ -144,6 +144,19 @@ function uu {
     echo "base OS is up-to-date with most recent patches."
 }
 
+# echopath - Split $PATH and print
+function echopath {
+    echo $PATH | tr : '\n' | sort
+}
+
+# ctop - Top-like interface for container metrics
+function ctop {
+    docker run --rm -ti \
+  --name=ctop \
+  --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+  quay.io/vektorlab/ctop:latest
+}
+
 # then you can add \`jobs_count\` to the end of your PS1 like this
 function jobs_count {
     cnt=$(jobs -l | wc -l)

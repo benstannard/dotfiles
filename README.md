@@ -1,4 +1,3 @@
-
 # Configs and dotfiles for new machines
 You can run bash.build script or manually create symbolic links to files.  
 ` $ ln -s ~/dotfiles/bashrc ~/.bashrc `
@@ -30,3 +29,8 @@ Download plug.vim and put it in the "autoload" directory .vim/autoload.
 Make sure wherever you symlink to is in your `$PATH`.  
 `sudo apt install fd-find`  
 `ln -s $(which fdfind) ~/local/fd`
+
+**git-delta**
+[install](https://github.com/dandavison/delta/releases).  
+`$ curl -LO <new-release> `
+`$ sudo dpkg -i new-release-file.deb`
