@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Useful Bash Commands and Shortcuts  
 
 ## Docker  

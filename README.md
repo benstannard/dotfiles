@@ -11,6 +11,12 @@ Download plug.vim and put it in the "autoload" directory .vim/autoload.
 
 
 ### BASH libraries
+**bat / batcat**
+[install](https://github.com/sharkdp/bat).  
+
+`sudo apt install bat`  
+Package will be installed as `batcat`, see .bashrc. I create a one-key alias **r** to use: `alias r='batcat --color=never '`  
+
 **ripgrep**
 [install](https://github.com/BurntSushi/ripgrep/blob/master/README.md#installation).  
 
