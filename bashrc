@@ -99,14 +99,6 @@ export PATH="/home/ben/.pyenv/bin:$PATH"
 export EDITOR=vim
 export GIT_EDITOR=vim
 
-# one key Bash
-alias c='cd '
-alias e='emacsclient -t'
-alias i='ipython'
-alias l='ls -1 --color=auto'
-alias r='batcat --color=never '
-alias v='vim '
-
 # simplify bash (cd)
 alias cd.='cd ..'
 alias cd..='cd ..'
@@ -117,15 +109,26 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 # simplify bash (ls)
+alias l='ls -1 --color=auto'
 alias ll='ls -lah --color=auto'
 alias ls='ls --color=auto -h --group-directories-first --ignore="*.pyc"'
 
-# simplify bash (fg = b)
+# simplify bash (fg = ja, jb, jc...)
 alias ja='fg 1'
 alias js='fg 2'
 alias jd='fg 3'
 alias jf='fg 4'
+
+# one key Bash and alias
+#alias e='emacsclient -t'
+#alias c='cd '
+alias i='ipython'
+alias v='vim '
 alias pst='pstree -p'
+alias r='batcat --color=never ' # r short for read
+alias s='rg ' # s short for search
+alias f='fd ' # f short for find
+alias e='exa --tree --long --header --color=never' # exa show directory as tree
 
 # Git
 alias gs='git status'
