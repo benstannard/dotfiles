@@ -132,19 +132,20 @@ alias er='e | r' # pipe to read
 alias ed='exa --only-dirs --tree --long --header --color=never' # exa only directorys as tree
 alias edr='ed | r' # pipe to read
 
-# Git
+# git
+alias gf='git fetch'
 alias gs='git status -s'
 alias gss='git status'
+alias ga='git add .'
 alias gd='git diff'
 alias gc='git checkout'
+alias gcm='git commit -m'
 
 # git log
-alias gl='git log '
-alias glr='git log | r' # git log and pipe to read
+alias gl='git log --graph --abbrev-commit --pretty=oneline'
+alias gll='git log | r' # git log and pipe to read
 alias glp='git log --patch | r' # see patches and pipe to read
-alias glo='git log --oneline '
 alias gls='git log --oneline --stat'
-alias glg='git log --oneline --decorate --graph'
 
 # git branch and git remote
 alias gb='git branch'
@@ -153,7 +154,6 @@ alias gbv='git branch -vv' # see what tracking branches you have setup
 alias gv='git remote -v'
 alias grso='git remote show origin'
 alias gvls='git ls-remote origin'
-
 
 
 ### FUNCTIONS ###
