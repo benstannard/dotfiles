@@ -17,10 +17,7 @@ Package will be installed as `batcat`, see .bashrc. I create a one-key alias **r
 `$ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb`  
 `$ sudo dpkg -i ripgrep_13.0.0_amd64.deb`  
 
-**fd** alternative to `find`. mapped to **`f`**. [source](https://github.com/sharkdp/fd#installation).  
-`fd` is already in use by another package on Debian so need to make a symlink. Make sure wherever you symlink to is in your `$PATH`.  
-`$ sudo apt install fd-find`  
-`$ ln -s $(which fdfind) ~/local/fd`  
+**fdfind** alternative to `find`. mapped to **`f`**. [source](https://github.com/sharkdp/fd#installation).  
 
 **exa** alternative to `ls`. mapped to **`e`**. [source](https://github.com/ogham/exa)  
 
