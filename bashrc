@@ -148,9 +148,8 @@ alias glso='git log --stat --oneline'
 
 # git branch and git remote
 alias gb='git branch'
-alias gbr='git branch -r'
+alias gbb='git branch --all'
 alias gbv='git branch -vv' # see what tracking branches you have setup
-alias gba='git branch --all'
 alias gv='git remote -v'
 alias grso='git remote show origin'
 alias gvls='git ls-remote origin'
