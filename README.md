@@ -11,13 +11,13 @@ Download plug.vim and put it in the "autoload" directory .vim/autoload.
 
 
 ### BASH libraries
-**bat / batcat** upgrade of `cat`. mapped to **`r`**
+**bat / batcat** upgrade of `cat`. mapped to **`r`**  
 [install](https://github.com/sharkdp/bat).  
 
 `sudo apt install bat`  
 Package will be installed as `batcat`, see .bashrc. I create a one-key alias **r** to use: `alias r='batcat --color=never '`  
 
-**ripgrep** alternative to `grep`, mapped to **`s`**
+**ripgrep** alternative to `grep`, mapped to **`s`**  
 [install](https://github.com/BurntSushi/ripgrep/blob/master/README.md#installation).  
 
 `$ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb`  
