@@ -128,7 +128,10 @@ alias pst='pstree -p'
 alias r='batcat --color=never ' # r short for read
 alias s='rg ' # s short for search
 alias f='fd ' # f short for find
-alias e='exa --tree --long --header --color=never' # exa show directory as tree
+alias e='exa --tree --long --header --color=never' # exa files as tree
+alias er='e | r' # pipe to read
+alias ed='exa --only-dirs --tree --long --header --color=never' # exa only directorys as tree
+alias edr='ed | r' # pipe to read
 
 # Git
 alias gs='git status'
