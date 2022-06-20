@@ -133,19 +133,18 @@ alias ed='exa --only-dirs --tree --long --header --color=never' # exa only direc
 alias edr='ed | r' # pipe to read
 
 # Git
-alias gs='git status'
-alias gss='git status -s'
+alias gs='git status -s'
+alias gss='git status'
 alias gd='git diff'
 alias gc='git checkout'
 
 # git log
 alias gl='git log '
 alias glr='git log | r' # git log and pipe to read
+alias glp='git log --patch | r' # see patches and pipe to read
 alias glo='git log --oneline '
-alias glos='git log --oneline --stat'
+alias gls='git log --oneline --stat'
 alias glg='git log --oneline --decorate --graph'
-alias glp='git log --patch '
-alias gls='git log --stat '
 
 # git branch and git remote
 alias gb='git branch'
