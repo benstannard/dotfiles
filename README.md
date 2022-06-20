@@ -11,32 +11,35 @@ Download plug.vim and put it in the "autoload" directory .vim/autoload.
 
 
 ### BASH libraries
-**bat / batcat**
+**bat / batcat** upgrade of `cat`. mapped to **`r`**
 [install](https://github.com/sharkdp/bat).  
 
 `sudo apt install bat`  
 Package will be installed as `batcat`, see .bashrc. I create a one-key alias **r** to use: `alias r='batcat --color=never '`  
 
-**ripgrep**
+**ripgrep** alternative to `grep`, mapped to **`s`**
 [install](https://github.com/BurntSushi/ripgrep/blob/master/README.md#installation).  
 
 `$ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb`  
 `$ sudo dpkg -i ripgrep_13.0.0_amd64.deb`  
 
-**fzf**
+**fd** alternative to `find`. mapped to **`f`**  
+[install](https://github.com/sharkdp/fd#installation).  
+`fd` is already in use by another package on Debian so need to make a symlink.  
+Make sure wherever you symlink to is in your `$PATH`.  
+`sudo apt install fd-find`  
+`ln -s $(which fdfind) ~/local/fd`  
+
+**exa** alternative to `ls`. mapped to **`e`**  
+[source](https://github.com/ogham/exa)  
+
+**fzf** upgrade `CTRL-R` bash history search.  
 [install](https://github.com/junegunn/fzf#installation).  
 
 `$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf`  
 `$ ~/.fzf/install`  
 
-**fd**
-[install](https://github.com/sharkdp/fd#installation).  
-`fd` is already in use by another package on Debian so need to make a symlink.  
-Make sure wherever you symlink to is in your `$PATH`.  
-`sudo apt install fd-find`  
-`ln -s $(which fdfind) ~/local/fd`
-
-**git-delta**
+**git-delta** upgrade `git diff`.  
 [install](https://github.com/dandavison/delta/releases).  
-`$ curl -LO <new-release> `
-`$ sudo dpkg -i new-release-file.deb`
+`$ curl -LO <new-release> `  
+`$ sudo dpkg -i new-release-file.deb`  
