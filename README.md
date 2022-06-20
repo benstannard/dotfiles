@@ -2,34 +2,33 @@
 You can run bash.build script or manually create symbolic links to files.  
 ` $ ln -s ~/dotfiles/bashrc ~/.bashrc `
 
-### VIM libraries
-**vim-plug**. [source](https://github.com/junegunn/vim-plug)  
-Download plug.vim and put it in the "autoload" directory .vim/autoload.  
-`$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim `  
+### VIM
+[vim-plug](https://github.com/junegunn/vim-plug)  
+Download plug.vim and put it in the "autoload" directory .vim/autoload.
+```
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
-### BASH libraries
-**bat / batcat** upgrade of `cat`. mapped to **`r`**. [source](https://github.com/sharkdp/bat).  
-`$ sudo apt install bat`  
-Package will be installed as `batcat`, see .bashrc. I create a one-key alias **r** to use: `alias r='batcat --color=never '`  
-
-**ripgrep** alternative to `grep`, mapped to **`s`**. [source](https://github.com/BurntSushi/ripgrep/blob/master/README.md#installation).  
+### BASH
+[bat / batcat](https://github.com/sharkdp/bat) upgrade of `cat`. mapped to **`r`**.  
+[ripgrep](https://github.com/BurntSushi/ripgrep/blob/master/README.md#installation) alternative to `grep`, mapped to **`s`**.  
 ```
 $ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
 $ sudo dpkg -i ripgrep_13.0.0_amd64.deb
 ```
 
-**fdfind** alternative to `find`. mapped to **`f`**. [source](https://github.com/sharkdp/fd#installation).  
+[fdfind](https://github.com/sharkdp/fd) alternative to `find`. mapped to **`f`**.  
 
-**exa** alternative to `ls`. mapped to **`e`**. [source](https://github.com/ogham/exa)  
+[exa](https://github.com/ogham/exa) alternative to `ls`. mapped to **`e`**.  
 
-**fzf** upgrade `CTRL-R` bash history search. [source](https://github.com/junegunn/fzf#installation).
+[fzf](https://github.com/junegunn/fzf) upgrade `CTRL-R` bash history search.   
 ```
 $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 $ ~/.fzf/install
 ```
 
-**git-delta** upgrade `git diff`. [source](https://github.com/dandavison/delta/releases).
+[git-delta](https://github.com/dandavison/delta/releases) upgrade `git diff`.  
 ```
 $ curl -LO <new-release>
 $ sudo dpkg -i new-release-file.deb
