@@ -140,11 +140,12 @@ alias gc='git checkout'
 
 # git log
 alias gl='git log '
+alias glr='git log | r' # git log and pipe to read
 alias glo='git log --oneline '
+alias glos='git log --oneline --stat'
 alias glg='git log --oneline --decorate --graph'
 alias glp='git log --patch '
 alias gls='git log --stat '
-alias glso='git log --stat --oneline'
 
 # git branch and git remote
 alias gb='git branch'
