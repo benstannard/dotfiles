@@ -134,8 +134,28 @@ alias edr='ed | r' # pipe to read
 
 # Git
 alias gs='git status'
-alias gb='git branch'
+alias gss='git status -s'
+alias gd='git diff'
 alias gc='git checkout'
+
+# git log
+alias gl='git log '
+alias glo='git log --oneline '
+alias glg='git log --oneline --decorate --graph'
+alias glp='git log --patch '
+alias gls='git log --stat '
+alias glso='git log --stat --oneline'
+
+# git branch and git remote
+alias gb='git branch'
+alias gbr='git branch -r'
+alias gbv='git branch -vv' # see what tracking branches you have setup
+alias gba='git branch --all'
+alias grv='git remote -v'
+alias grs='git remote show origin'
+alias gvls='git ls-remote origin'
+
+
 
 ### FUNCTIONS ###
 # Function to update OS & Libraries.
