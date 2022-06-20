@@ -119,17 +119,15 @@ alias jd='fg 3'
 alias jf='fg 4'
 
 # one key Bash and alias
-#alias e='emacsclient -t'
-#alias c='cd '
 alias i='ipython'
 alias v='vim '
 alias pst='pstree -p'
-alias r='batcat --color=never ' # r short for read
-alias s='rg ' # s short for search
-alias f='fdfind ' # f short for find
+alias r='batcat --color=never' # r short for read
+alias s='rg' # s short for search
+alias f='fdfind' # f short for find
 alias e='exa --tree --long --header --color=never' # exa files as tree
 alias er='e | r' # pipe to read
-alias ed='exa --only-dirs --tree --long --header --color=never' # exa only directorys as tree
+alias ed='exa --only-dirs --tree --long --header --color=never' # exa only directories as tree
 alias edr='ed | r' # pipe to read
 
 # git
@@ -139,7 +137,7 @@ alias gss='git status'
 alias ga='git add .'
 alias gd='git diff'
 alias gc='git checkout'
-alias gcm='git commit -m'
+alias gcm='git commit -am'
 
 # git log
 alias gl='git log --graph --abbrev-commit --pretty=oneline'
