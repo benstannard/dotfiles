@@ -173,10 +173,19 @@ function echopath {
 
 # ctop - Top-like interface for container metrics
 function ctop {
-    docker run --rm -ti \
-  --name=ctop \
-  --volume /var/run/docker.sock:/var/run/docker.sock:ro \
-  quay.io/vektorlab/ctop:latest
+    docker run --rm -it \
+    --name=ctop \
+    --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+    quay.io/vektorlab/ctop:latest
+}
+
+# gtop - System monitoring dashboard for terminal see, https://github.com/aksakalli/gtop
+function gtop {
+    docker run --rm -it \
+    --name gtop \
+    --net="host" \
+    --pid="host" \
+    aksakalli/gtop
 }
 
 # then you can add \`jobs_count\` to the end of your PS1 like this
