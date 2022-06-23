@@ -134,10 +134,10 @@ alias edr='ed | r' # pipe to read
 alias gf='git fetch'
 alias gs='git status -s'
 alias gss='git status'
-alias ga='git add .'
+alias gaa='git add .'
 alias gd='git diff'
 alias gc='git checkout'
-alias gcm='git commit -am'
+alias gcm='git commit -m'
 
 # git log
 alias gl='git log --graph --abbrev-commit --pretty=oneline'
