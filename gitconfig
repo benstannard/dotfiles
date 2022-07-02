@@ -1,12 +1,17 @@
 [user]
 	name = Ben Stannard
-	email = ben.stannard@gmail.com
+	# email = ben.stannard@gmail.com
+	email = bstannard@kencove.com
 
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 
 [core]
-    pager = delta
+	pager = delta
+	editor = emacs
+[pull]
+	rebase = true
+	ff = only
 
 [interactive]
     diffFilter = delta --color-only
@@ -20,3 +25,10 @@
 
 [diff]
     colorMoved = default
+
+[interactive]
+	diffFilter = delta --color-only
+
+[merge]
+	conflictstyle = diff3
+
