@@ -53,7 +53,7 @@ export GIT_EDITOR=emacs
 # simplify bash (ls)
 alias l='ls -1'
 alias ll='ls -lah'
-alias ls='ls --group-directories-first'
+# alias ls='ls --group-directories-first'
 
 # simplify bash (fg = ja, jb, jc...)
 alias ja='fg 1'
@@ -70,11 +70,8 @@ alias f='fdfind' 	      	# f short for find
 
 # exa
 alias e='exa --tree --long --header --no-user --no-time --git --level=1'
-alias ee='exa --tree --long --header --no-user --no-time --git'
+alias ee='exa --only-dirs --tree --long --header  --level=1 ' 	# exa only directories as tree, depth level 1
 alias er='e | r'								# pipe to read
-alias ed='exa --only-dirs --tree --long --header --color=never' 		# exa only directories as tree
-alias edd='exa --only-dirs --tree --long --header --color=never --level=1 ' 	# exa only directories as tree, depth level 1
-alias edr='ed | r' 	   	  	 	  			  	# pipe to read
 
 # git
 alias gf='git fetch'
