@@ -1,43 +1,36 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c <-- inspired by
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-    *) return;;
-esac
+# Disable the bell
+if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-export HISTCONTROL=ignoreboth:erasedups
+# Expand the history size
+export HISTFILESIZE=10000
+export HISTSIZE=500
 
-# append to the history file, don't overwrite it
+# Don't put duplicate lines in the history and do not add lines that start with a space
+export HISTCONTROL=erasedups:ignoredups:ignorespace
+
+# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
+shopt -s checkwinsize
+
+# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
 shopt -s histappend
+# PROMPT_COMMAND='history -a'
 
-# ctrl-s probably won't work by defaul for most terminals
+# Allow ctrl-S for history navigation (with ctrl-R)
 stty -ixon
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
+# Ignore case on auto-completion
+# Note: bind used instead of sticking these in .inputrc
+if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-# shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
+# Enable bash programmable completion features in interactive shells
+if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
+elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
-    fi
 fi
 
 # PATH
@@ -50,19 +43,38 @@ export PATH=$PATH:$HOME/bash-sql
 export EDITOR=emacs
 export GIT_EDITOR=emacs
 
-# simplify bash (ls)
-alias l='ls -1'
-alias ll='ls -lah'
-# alias ls='ls --group-directories-first'
+# Change directory aliases
+alias home='cd ~'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
-# simplify bash (fg = ja, jb, jc...)
+# Alias's for multiple directory listing commands
+alias la='ls -Alh' # show hidden files
+alias ls='ls -aFh --color=always' # add colors and file type extensions
+alias lx='ls -lXBh' # sort by extension
+alias lk='ls -lSrh' # sort by size
+alias lc='ls -lcrh' # sort by change time
+alias lu='ls -lurh' # sort by access time
+alias lr='ls -lRh' # recursive ls
+alias lt='ls -ltrh' # sort by date
+alias lm='ls -alh |more' # pipe through 'more'
+alias lw='ls -xAh' # wide listing format
+alias ll='ls -Fls' # long listing format
+alias labc='ls -lap' #alphabetical sort
+alias lf="ls -l | egrep -v '^d'" # files only
+alias ldir="ls -l | egrep '^d'" # directories only
+
+# simplify fg = ja, jb, jc...
 alias ja='fg 1'
 alias js='fg 2'
 alias jd='fg 3'
 alias jf='fg 4'
 
 # one key alias
-alias m='emacsclient -a "" -c'	# connect to daemon, if not running start new one.
+alias m='emacs'
 alias pst='pstree -p'
 alias r='bat --color=never'	# r short for read, call full command  batcat on some systems
 alias s='rg' 		      	# s short for search
@@ -71,7 +83,7 @@ alias f='fdfind' 	      	# f short for find
 # exa
 alias e='exa --tree --long --header --no-user --no-time --git --level=1'
 alias ee='exa --only-dirs --tree --long --header  --level=1 ' 	# exa only directories as tree, depth level 1
-alias er='e | r'								# pipe to read
+alias er='e | r'						# pipe to read
 
 # git
 alias gf='git fetch'
