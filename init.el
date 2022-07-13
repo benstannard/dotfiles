@@ -137,14 +137,19 @@
   :init
   (smartparens-global-mode))
 
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t))
+
 (require 'uniquify) ;; Improve buffer names when duplicate files are opened
 (setq uniquify-buffer-name-style 'forward)
 
-;; (use-package exec-path-from-shell
-;;   :if (memq window-system '(mac ns x))
-;;   :ensure t
-;;   :config
-;;   (exec-path-from-shell-initialize))
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns x))
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
 
 ;; (use-package projectile
 ;;   :ensure t
@@ -154,16 +159,6 @@
 ;;   :bind (:map projectile-mode-map
 ;;               ("s-p" . projectile-command-map)
 ;;               ("C-c p" . projectile-command-map)))
-
-;; (use-package company
-;;   :ensure t
-;;   :init
-;;   (add-hook 'after-init-hook 'global-company-mode)
-;;   :config
-;;   (setq company-dabbrev-downcase 0)
-;;   (setq company-idle-delay 0.1)
-;;   (setq company-minimum-prefix-length 1)
-;;   (setq company-tooltip-align-annotations t))
 
 ;; (use-package company
 ;;   :ensure t
