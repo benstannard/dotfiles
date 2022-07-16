@@ -1,6 +1,6 @@
 # Configs and dotfiles for new machines
-You can run bash.build script or manually create symbolic links to files.  
-` $ ln -s ~/dotfiles/bashrc ~/.bashrc `
+You can run bash.build script or manually create symbolic links to files.
+` $ ln -s ~$HOME/dotfiles/bashrc ~/.bashrc `
 
 ### VIM
 [vim-plug](https://github.com/junegunn/vim-plug)  

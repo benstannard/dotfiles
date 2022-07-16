@@ -79,7 +79,7 @@ alias m='emacs'
 alias pst='pstree -p'
 alias r='bat --color=never'	# r short for read, call full command  batcat on some systems
 alias s='rg' 		      	# s short for search
-alias f='fdfind' 	      	# f short for find
+alias f='fd' 	      		# f short for find
 
 # exa
 alias e='exa --tree --long --header --no-user --no-time --git --level=1'
