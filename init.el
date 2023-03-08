@@ -29,7 +29,7 @@
 (global-display-line-numbers-mode 1)
 (column-number-mode t)
 (size-indication-mode t)
-(global-hl-line-mode +1)
+;; (global-hl-line-mode +1)
 
 ;; Add melpa to the package list and initialize our package
 (require 'package)
@@ -109,8 +109,8 @@
   (unless (window-system)
     (diff-hl-margin-mode 1)))
 
-(use-package magit
-  :ensure t)
+;; (use-package magit
+;;   :ensure t)
 
 (use-package web-mode
   :mode
@@ -132,15 +132,23 @@
 (use-package sql-indent
   :commands sqlind-minor-mode)
 
-(use-package smartparens
-  :ensure t
-  :init
-  (smartparens-global-mode))
+;; (use-package smartparens
+;;   :ensure t
+;;   :init
+;;   (smartparens-global-mode))
 
 (use-package flycheck
   :ensure t
-  :init
-  (global-flycheck-mode t))
+  :init (global-flycheck-mode)
+  ;; (setq flycheck-check-syntax-automatically '(save new-line)
+  ;;       flycheck-idle-change-delay 5.0
+  ;;       flycheck-display-errors-delay 0.9
+  ;;       flycheck-highlighting-mode 'symbols
+  ;;       flycheck-indication-mode 'left-fringe
+  ;;       flycheck-standard-error-navigation t
+  ;;       flycheck-deferred-syntax-check nil)
+  )
+
 
 (require 'uniquify) ;; Improve buffer names when duplicate files are opened
 (setq uniquify-buffer-name-style 'forward)
