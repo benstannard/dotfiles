@@ -19,3 +19,18 @@
 `drmid`             remove all dangling images  
 `drun <image>`      execute a bash shell in a NEW container from <image>  
 `dsr <container>`   stop then remove <container>  
+`docker compose up --build --force-recreate`  
+
+
+## Kube  
+`kubectl get namespaces` or `k get ns`  
+`kubectl get pods -n namespace -o wide|yaml|json|name`  
+`kubectl logs -f pod-name -n namespace`  
+`kubectl describe pod -n namespace`  
+`kubectl exec -it $p -n namespace -c container --sh`  
+`kubectl get events --namespace=1password`  
+
+
+## Bash
+`cat etc/os-release`  
+`uname -n -m`       machine-hardware  
