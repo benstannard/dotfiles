@@ -1,4 +1,4 @@
-;; Thank you jwiegley, belak, gamedolphin, many others. Some nice sources below:
+;; Some helpful sources below:
 ;; https://github.com/jwiegley/use-package
 ;; https://gist.github.com/belak/ca1c9ae75e53324ee16e2e5289a9c4bc
 ;; https://raw.githubusercontent.com/gamedolphin/.emacs.d/master/init.el
@@ -20,6 +20,7 @@
 (setq-default show-trailing-whitespace t) ;; Show stray whitespace.
 (setq-default indicate-empty-lines t)
 (setq ring-bell-function 'ignore) ;; No visual bell please
+(setq python-indent-guess-indent-offset nil)
 (show-paren-mode 1) ;; Show parens
 (menu-bar-mode -1) ;; No Menu Bar
 (tool-bar-mode -1) ;; No Tool Bar
@@ -30,6 +31,7 @@
 (column-number-mode t)
 (size-indication-mode t)
 ;; (global-hl-line-mode +1)
+;;(set-face-foreground 'minibuffer-prompt "black")
 
 ;; Add melpa to the package list and initialize our package
 (require 'package)
