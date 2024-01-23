@@ -23,14 +23,28 @@
 
 
 ## Kube
+`kubectl api-resources`  
+`kubectl get - list resources`  
+`kubectl describe - show detailed information about a resource`  
+`kubectl logs - print the logs from a container in a pod`  
+`kubectl exec - execute a command on a container in a pod`  
+`kubectl config use-context <cluster info>`  
+
+
 `k-prod-gc`  
 `kubectl cluster-info dump | less`  
+`kubectl get nodes`  
+`kubectl describe node <nodename>`  
+`kubectl get deployment -n namespace`  
+`kubectl describe deployment -n namespace`  
+`kubectl proxy --port=8080`  
 `kubectl get namespaces` or `k get ns`  
 `kubectl get all -n namespace`  
 `kubectl get pods -n namespace -o wide|yaml|json|name`  
 `kubectl logs -f pod-name -n namespace`  
 `kubectl describe pod -n namespace`  
-`kubectl exec -it $p -n namespace -c container --sh`  
+`kubectl exec -it <podname> -n namespace -- env    dump env variables`  
+`kubectl exec -it <podname> -n namespace -- bash   start bash session`  
 `kubectl get events --namespace=1password`  
 `kubectl get pvc -n namespace`  
 `k rollout restart deployment.apps/redash-scheduler -n namespace`  
