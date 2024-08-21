@@ -48,10 +48,19 @@
 `kubectl get events --namespace=1password`  
 `kubectl get pvc -n namespace`  
 `k rollout restart deployment.apps/redash-scheduler -n namespace`  
+
+## HELM
 `helm list --all-namespaces`  
+`helm get values -n NAMESPACE RELEASE_NAME`  
+`helm rollback RELEASE_NAME VERSION -n NAMESPACE`  
+
 
 
 ## Bash
-`cat etc/os-release`  
-`uname -n -m`       machine-hardware  
-`df -m`             free memory  
+`cat etc/os-release` OS Version
+`uname -n -m`        machine-hardware  
+`df -m`              free memory  
+`cat /proc/cpuinfo`  CPU Details  
+
+
+

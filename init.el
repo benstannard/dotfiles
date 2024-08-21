@@ -37,6 +37,10 @@
 ;;(set-face-foreground 'minibuffer-prompt "black")
 
 
+(define-abbrev-table 'global-abbrev-table '(
+    ("iferr" "if err != nil {}" nil 0)
+))
+
 ;; Add melpa to the package list and initialize our package
 (require 'package)
 (add-to-list 'package-archives
@@ -212,6 +216,21 @@
   :ensure t
   :config
   (exec-path-from-shell-initialize))
+
+(use-package origami
+  :ensure t
+  :init
+  (global-origami-mode)
+  :bind
+  ("C-c TAB" . origami-toggle-node))
+
+
+(use-package json-mode
+  :ensure t
+  :init
+  (add-hook 'json-mode-hook 'origami-mode))
+
+
 
 ;; (use-package projectile
 ;;   :ensure t

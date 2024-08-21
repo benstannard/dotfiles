@@ -271,3 +271,5 @@ export PGUSER=postgres
 
 # Created by `pipx` on 2023-11-07 18:15:55
 export PATH="$PATH:/Users/bstannard/.local/bin"
+
+. "$HOME/.cargo/env"
