@@ -49,7 +49,7 @@
 `kubectl get pvc -n namespace`  
 `k rollout restart deployment.apps/redash-scheduler -n namespace`  
 
-## HELM
+## Helm
 `helm list --all-namespaces`  
 `helm get values -n NAMESPACE RELEASE_NAME`  
 `helm rollback RELEASE_NAME VERSION -n NAMESPACE`  
@@ -63,4 +63,7 @@
 `cat /proc/cpuinfo`  CPU Details  
 
 
+
+## Redis
+`redis-cli -h XXX.XXX.XX.XXX --bigkeys`  
 

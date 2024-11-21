@@ -40,8 +40,8 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/bash-sql
 
 # Editor
-export EDITOR=emacs
-export GIT_EDITOR=emacs
+export EDITOR=vim
+export GIT_EDITOR=vim
 
 # Change directory aliases
 alias home='cd ~'
