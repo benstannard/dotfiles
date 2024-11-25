@@ -1,0 +1,2 @@
+require("thebenjamin")
+print("hello")
