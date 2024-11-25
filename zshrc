@@ -112,8 +112,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # VSCode now
-export EDITOR=emacs
-export GIT_EDITOR=emacs
+export EDITOR=nvim
+export GIT_EDITOR=nvim
 
 # simplify bash (ls)
 # alias l='ls -1'
@@ -131,7 +131,8 @@ alias jd='fg %3'
 alias jf='fg %4'
 
 # one key alias
-alias m='emacs'
+# alias m='emacs'
+alias m='nvim'
 alias pst='pstree -p'
 alias b='bat' # r short for read, call full command  batcat on some systems
 alias s='rg' # s short for search
