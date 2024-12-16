@@ -176,11 +176,8 @@ alias gvls='git ls-remote origin'
 
 # Kubectl
 alias k=kubectl
-alias k-review="kubectl config use-context do-nyc3-kencove-review"
-alias k-prod="kubectl config use-context do-nyc3-kencove-kub-1"
-alias k-staging="kubectl config use-context do-nyc3-kencove-staging"
 alias k-prod-gc="kubectl config use-context gke_kencove-prod_us-central1_kencove-prod-gc"
-alias k-ben="kubectl config use-context lke135698-ctx"
+alias k-ben="kubectl config use-context lke275735-ctx"
 export kapi="api-kencove-23408405-production"
 export knginx="ingress-nginx"
 export kodoo="odoo-platform-22086850-production"
