@@ -243,14 +243,9 @@ function prompt() {
 
 PROMPT_COMMAND=prompt
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-
 [ -f ~/.docker_aliases ] && source ~/.docker_aliases
 [ -f ~/.z.sh ] && source ~/.z.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 # eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
