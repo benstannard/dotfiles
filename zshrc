@@ -105,13 +105,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-####### Ben Bash Aliases Copied Over #####
 # PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 
-# VSCode now
+# EDITOR
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 
@@ -137,18 +136,11 @@ alias pst='pstree -p'
 alias b='bat' # r short for read, call full command  batcat on some systems
 alias s='rg' # s short for search
 alias f='fdfind' # f short for find
-
-# exa
-# alias e='exa -all --tree --long --header --no-user --no-time --git --level=1' # exa files as tree, depth level 1
-# alias ee='exa --tree --long --header --no-user --no-time --git' # exa files as tree
-# alias edd='exa --only-dirs --tree --long --header --level=1 ' # exa only directories as tree, depth level 1
-# alias l='exa -all --tree --long --header --no-user --no-time --git --level=1' # exa files as tree, depth level 1
 alias l='ls -alh'
-alias ld='exa --only-dirs --tree --long --header --level=1 ' # exa only directories as tree, depth level 1
-alias ll='exa --tree --long --header --no-user --no-time --git' # exa files as tree
-#alias er='e | r' # pipe to read
-alias ed='exa --only-dirs --tree --long --header' # exa only directories as tree
-alias edr='ed | r' # pipe to read
+#alias ld='exa --only-dirs --tree --long --header --level=1 ' # exa only directories as tree, depth level 1
+#alias ll='exa --tree --long --header --no-user --no-time --git' # exa files as tree
+#alias ed='exa --only-dirs --tree --long --header' # exa only directories as tree
+#alias edr='ed | r' # pipe to read
 
 # git
 alias gf='git fetch'
@@ -243,6 +235,8 @@ function prompt() {
 
 PROMPT_COMMAND=prompt
 
+# disable homebrew hints
+export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 [ -f ~/.docker_aliases ] && source ~/.docker_aliases
 [ -f ~/.z.sh ] && source ~/.z.sh
 source <(fzf --zsh)
@@ -261,7 +255,16 @@ export PGHOST=localhost
 export PGPORT=5432
 export PGUSER=postgres
 
+# To activate these completions, add the following to your .zshrc:
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
+    autoload -Uz compinit
+    compinit
+  fi
+
+# Added on 2024-12 to include invoke
+export PATH="$PATH:$HOME/Library/Python/3.9/bin:$PATH"
 # Created by `pipx` on 2023-11-07 18:15:55
 export PATH="$PATH:/Users/bstannard/.local/bin"
 
