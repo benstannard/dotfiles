@@ -47,7 +47,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 let mapleader=','
 
 " Quickly get out of insert mode
-inoremap jj <Esc>
+inoremap kj <Esc>
 
 " v for visual
 vno v <esc>
