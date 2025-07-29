@@ -111,14 +111,13 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # EDITOR
-export EDITOR=nvim
-export GIT_EDITOR=nvim
+export EDITOR=emacs
+export GIT_EDITOR=emacs
 
 # simplify bash (ls)
 # alias l='ls -1'
 # alias ll='ls -lah'
 # alias ls='ls --group-directories-first'
-alias a='algolia'
 alias lsf='find . -maxdepth 10'
 alias lsfm='find . -maxdepth 10 -exec du -h {} +'
 alias curltime="curl -w \"@$HOME/.curl-format.txt\" -o /dev/null -s "
@@ -130,8 +129,7 @@ alias jd='fg %3'
 alias jf='fg %4'
 
 # one key alias
-# alias m='emacs'
-alias m='nvim'
+alias e='emacs'
 alias pst='pstree -p'
 alias b='bat' # r short for read, call full command  batcat on some systems
 alias s='rg' # s short for search
@@ -243,18 +241,12 @@ export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 source <(fzf --zsh)
 # eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/bstannard/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bstannard/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bstannard/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bstannard/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PGDATABASE=postgres
-export PGHOST=localhost
-export PGPORT=5432
-export PGUSER=postgres
 
 # To activate these completions, add the following to your .zshrc:
 if type brew &>/dev/null; then

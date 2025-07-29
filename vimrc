@@ -49,6 +49,9 @@ let mapleader=','
 " Quickly get out of insert mode
 inoremap kj <Esc>
 
+" 00 maps to end-of-line
+:nnoremap 00 $
+
 " v for visual
 vno v <esc>
 

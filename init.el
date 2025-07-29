@@ -21,8 +21,7 @@
 (setq-default show-trailing-whitespace t) ;; Show stray whitespace.
 (setq-default indicate-empty-lines t)
 (setq ring-bell-function 'ignore) ;; No visual bell please
-;; (setq python-indent-guess-indent-offset nil)
-(setq-default truncate-lines t) ;; do not truncate lines
+(setq-default truncate-lines t) ;; truncate lines (disable word wrapping)
 (show-paren-mode 1) ;; Show parens
 (menu-bar-mode -1) ;; No Menu Bar
 (tool-bar-mode -1) ;; No Tool Bar
@@ -113,17 +112,6 @@
   (global-undo-tree-mode 1)
   (setq undo-tree-auto-save-history nil))
 
-;; (use-package diff-hl
-;;   :config
-;;   ;; We only need diff-hl-margin-mode if we're in a terminal.
-;;   (global-diff-hl-mode 1)
-;;   (unless (window-system)
-;;     (diff-hl-margin-mode 1)))
-
-
-;; (use-package magit
-;;   :ensure t)
-
 (use-package go-mode
   :mode "\\.go\\'"
   :config
@@ -133,22 +121,6 @@
   ;; (add-hook 'before-save-hook #'lsp-format-buffer t t)
   ;; (add-hook 'before-save-hook #'lsp-organize-imports t t))
   ;; (add-hook 'go-mode-hook #'my/go-mode-setup))
-
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :commands (lsp lsp-mode lsp-deferred)
-;;   :hook ((rust-mode python-mode go-mode) . lsp-deferred)
-;;   :config
-;;   (setq lsp-prefer-flymake nil
-;;         lsp-enable-indentation nil
-;;         lsp-enable-on-type-formatting nil
-;;         lsp-rust-server 'rust-analyzer)
-;;   ;; for filling args placeholders upon function completion candidate selection
-;;   ;; lsp-enable-snippet and company-lsp-enable-snippet should be nil with
-;;   ;; yas-minor-mode is enabled: https://emacs.stackexchange.com/q/53104
-;;   (lsp-modeline-code-actions-mode)
-;;   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-;;   (add-to-list 'lsp-file-watch-ignored "\\.vscode\\'"))
 
 (use-package neotree
   :bind([f9] . neotree-toggle)
@@ -167,9 +139,6 @@
 
 (use-package js2-mode
   :mode "\\.js\\'")
-
-(use-package json-mode
-  :mode "\\.json\\'")
 
 (use-package markdown-mode
   :mode ("\\.md\\'" . gfm-mode))
@@ -191,8 +160,6 @@
 
 (use-package flycheck
   :ensure t
-;;  :bind (("M-n" . flycheck-next-error)
-;;         ("M-p" . flycheck-previous-error))
   :init (global-flycheck-mode)
   (setq flycheck-check-syntax-automatically '(save new-line)
         flycheck-idle-change-delay 15.0
@@ -202,14 +169,6 @@
         flycheck-standard-error-navigation t
         flycheck-deferred-syntax-check nil)
   )
-
-;; (use-package flycheck-color-mode-line
-;;   :config
-;;   (eval-after-load "flycheck"
-;;     '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
-;;   (set-face-background 'flycheck-color-mode-line-error-face "#870000")
-;;   (set-face-background 'flycheck-color-mode-line-warning-face "#707070"))
-
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
@@ -230,38 +189,6 @@
   :init
   (add-hook 'json-mode-hook 'origami-mode))
 
-
-
-;; (use-package projectile
-;;   :ensure t
-;;   :after ivy
-;;   :init
-;;   (projectile-mode +1)
-;;   :bind (:map projectile-mode-map
-;;               ("s-p" . projectile-command-map)
-;;               ("C-c p" . projectile-command-map)))
-
-;; (use-package company
-;;   :ensure t
-;;   :init
-;;   (add-hook 'after-init-hook 'global-company-mode)
-;;   :config
-;;   (setq company-dabbrev-downcase 0)
-;;   (setq company-idle-delay 0.1)
-;;   (setq company-minimum-prefix-length 1)
-;;   (setq company-tooltip-align-annotations t))
-
-;;
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(custom-enabled-themes '(smart-mode-line-light deeper-blue manoj-dark leuven))
-;;  '(package-selected-packages
-;;    '(lsp-mode undo-tree flx-ido ido-vertical-mode ido-ubiquitous smex smart-mode-line use-package))
-;;  '(warning-suppress-log-types '((use-package) (use-package) (use-package)))
-;;  '(warning-suppress-types '((use-package) (use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

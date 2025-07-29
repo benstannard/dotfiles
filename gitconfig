@@ -8,7 +8,7 @@
 
 [core]
 	pager = delta
-	editor = emacs
+	editor = vim
 [pull]
 	rebase = true
 	ff = only
