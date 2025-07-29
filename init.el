@@ -58,6 +58,19 @@
   (require 'use-package))
 
 ;; Packages
+(use-package eglot
+  :ensure t
+  :hook
+  ((go-mode
+    python-mode
+    rust-mode
+    js-mode
+    js2-mode
+    json-mode
+    web-mode
+    sql-mode) . eglot-ensure)
+  :commands (eglot eglot-ensure))
+
 (use-package smart-mode-line
   :config
   (setq sml/no-confirm-load-theme t
@@ -106,11 +119,15 @@
   :config
   (setq avy-background t))
 
-(use-package undo-tree
-  :diminish undo-tree-mode
+(use-package vundo
+  :ensure t
+  :bind
+  ("C-x u" . vundo)  ;; Or any keybinding you prefer
   :config
-  (global-undo-tree-mode 1)
-  (setq undo-tree-auto-save-history nil))
+  ;; Optionally change the symbol used in the tree
+  ;; (setq vundo-glyph-alist vundo-unicode-symbols)
+  ;; Set window size or behavior
+  (setq vundo-compact-display t))
 
 (use-package go-mode
   :mode "\\.go\\'"
@@ -123,7 +140,7 @@
   ;; (add-hook 'go-mode-hook #'my/go-mode-setup))
 
 (use-package neotree
-  :bind([f9] . neotree-toggle)
+  :bind([f8] . neotree-toggle)
   ;; :hook (neo-after-create . (lambda (_)(call-interactively 'text-scale-twice)))
   :config
   (setq neo-autorefresh nil)
@@ -189,17 +206,28 @@
   :init
   (add-hook 'json-mode-hook 'origami-mode))
 
+(use-package vscode-dark-plus-theme
+  :ensure t
+  :config
+  (load-theme 'vscode-dark-plus t))  ;; or 'vscode-light-plus
+
+
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(custom-enabled-themes '(deeper-blue))
+;;  '(package-selected-packages nil))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(deeper-blue))
- '(package-selected-packages
-   '(web-mode use-package undo-tree sqlformat sql-indent smex smartparens smart-mode-line neotree magit lua-mode lsp-mode json-mode js2-mode ido-vertical-mode go-mode flycheck flx-ido exec-path-from-shell diff-hl cmake-mode avy auto-dark)))
