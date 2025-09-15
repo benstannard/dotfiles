@@ -18,7 +18,7 @@
 
 ;; Preferences
 (setq inhibit-startup-screen t)
-(setq-default show-trailing-whitespace t) ;; Show stray whitespace.
+;; (setq-default show-trailing-whitespace t) ;; Show stray whitespace.
 (setq-default indicate-empty-lines t)
 (setq ring-bell-function 'ignore) ;; No visual bell please
 (setq-default truncate-lines t) ;; truncate lines (disable word wrapping)
@@ -39,6 +39,18 @@
 (define-abbrev-table 'global-abbrev-table '(
     ("iferr" "if err != nil {}" nil 0)
 ))
+
+;;; M-o
+(defun insert-line-above ()
+  "Insert a new line above the current line and indent."
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(global-set-key (kbd "M-o") 'insert-line-above)
+
 
 ;; Add melpa to the package list and initialize our package
 (require 'package)
@@ -68,7 +80,8 @@
     js2-mode
     json-mode
     web-mode
-    sql-mode) . eglot-ensure)
+    ;; sql-mode
+    ) . eglot-ensure)
   :commands (eglot eglot-ensure))
 
 (use-package smart-mode-line
@@ -163,12 +176,12 @@
 (use-package sql-indent
   :commands sqlind-minor-mode)
 
-(use-package sqlformat
-  :config
-  (setq sqlformat-command 'pgformatter
-        sqlformat-args '("-s2" "-g"))
-  :hook (sql-mode . sqlformat-on-save-mode)
-  :bind (:map sql-mode-map ("C-c C-f" . sqlformat)))
+;; (use-package sqlformat
+;;   :config
+;;   (setq sqlformat-command 'pgformatter
+;;         sqlformat-args '("-s2" "-g"))
+;;   :hook (sql-mode . sqlformat-on-save-mode)
+;;   :bind (:map sql-mode-map ("C-c C-f" . sqlformat)))
 
 (use-package smartparens
   :ensure t
@@ -178,14 +191,25 @@
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode)
-  (setq flycheck-check-syntax-automatically '(save new-line)
-        flycheck-idle-change-delay 15.0
-        flycheck-display-errors-delay 3.0
-        flycheck-highlighting-mode 'symbols
-        flycheck-indication-mode 'left-fringe
-        flycheck-standard-error-navigation t
-        flycheck-deferred-syntax-check nil)
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  ;; (setq flycheck-check-syntax-automatically '(save new-line)
+  ;;       flycheck-idle-change-delay 15.0
+  ;;       flycheck-display-errors-delay 3.0
+  ;;       flycheck-highlighting-mode 'symbols
+  ;;       flycheck-indication-mode 'left-fringe
+  ;;       flycheck-standard-error-navigation t
+  ;;       flycheck-deferred-syntax-check nil)
   )
+
+;; (flycheck-define-checker sqlfluff
+;;   "Lint SQL using sqlfluff."
+;;   :command ("sqlfluff" "lint" "--dialect" "postgres" "--nocolor" source)
+;;   :error-patterns
+;;   ((error line-start (file-name) ":" line ":" column ":"
+;;           (message) line-end))
+;;   :modes (sql-mode))
+
+;; (add-to-list 'flycheck-checkers 'sqlfluff)
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
