@@ -18,7 +18,7 @@
 
 ;; Preferences
 (setq inhibit-startup-screen t)
-;; (setq-default show-trailing-whitespace t) ;; Show stray whitespace.
+(setq-default show-trailing-whitespace t) ;; Show stray whitespace.
 (setq-default indicate-empty-lines t)
 (setq ring-bell-function 'ignore) ;; No visual bell please
 (setq-default truncate-lines t) ;; truncate lines (disable word wrapping)
@@ -35,12 +35,24 @@
 ;; (if window-system (global-hl-line-mode t))
 ;;(set-face-foreground 'minibuffer-prompt "black")
 
+;; M-w copy to clipboard on MacOS
+(setq interprogram-cut-function
+      (lambda (text &optional push)
+        (let ((process-connection-type nil))
+          (start-process "pbcopy" nil "pbcopy")
+          (process-send-string "pbcopy" text)
+          (process-send-eof "pbcopy"))))
 
+(setq interprogram-paste-function
+      (lambda ()
+        (shell-command-to-string "pbpaste")))
+
+;; Not sure
 (define-abbrev-table 'global-abbrev-table '(
     ("iferr" "if err != nil {}" nil 0)
 ))
 
-;;; M-o
+;;; M-o insert line above but C-o does the same I think
 (defun insert-line-above ()
   "Insert a new line above the current line and indent."
   (interactive)
@@ -188,18 +200,22 @@
   :init
   (smartparens-global-mode))
 
+
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-  ;; (setq flycheck-check-syntax-automatically '(save new-line)
-  ;;       flycheck-idle-change-delay 15.0
-  ;;       flycheck-display-errors-delay 3.0
-  ;;       flycheck-highlighting-mode 'symbols
-  ;;       flycheck-indication-mode 'left-fringe
-  ;;       flycheck-standard-error-navigation t
-  ;;       flycheck-deferred-syntax-check nil)
-  )
+  :hook (after-init . global-flycheck-mode)
+  :config
+  (setq flycheck-check-syntax-automatically '(save mode-enabled)
+        flycheck-idle-change-delay 2.0
+        flycheck-display-errors-delay 1.0
+        flycheck-highlighting-mode 'symbols
+        flycheck-indication-mode 'left-fringe
+        flycheck-standard-error-navigation t
+        flycheck-deferred-syntax-check nil)
+  
+  ;; Customize error display
+  (set-face-attribute 'flycheck-error nil :underline '(:color "red" :style wave))
+  (set-face-attribute 'flycheck-warning nil :underline '(:color "orange" :style wave)))
 
 ;; (flycheck-define-checker sqlfluff
 ;;   "Lint SQL using sqlfluff."
